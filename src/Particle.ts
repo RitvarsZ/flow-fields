@@ -69,8 +69,8 @@ export default class Particle extends Object {
     
     // Draw a line from previous position to current position.
     public draw(ctx: CanvasRenderingContext2D): void {
+        ctx.strokeStyle = `rgba(${Math.random() * 255}, ${Math.random() * 100}, ${Math.random() * 255}, 0.1)`;
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(${Math.random() * 255}, 13, ${Math.random() * 255}, 0.1)`;
         ctx.moveTo(this.prevPosition.x, this.prevPosition.y);
         ctx.lineTo(this.position.x, this.position.y);
         // console.log(this.position, this.prevPosition);

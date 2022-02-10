@@ -5,5 +5,5 @@ export default class Config {
     public static readonly FRICTION: number = 0.01;
     public static readonly GRAVITY: number = 0.05;
     public static readonly PHYSICS_STEP: number = 1 / 60;
-    public static readonly PARTICLE_COUNT: number = 1000;
+    public static readonly PARTICLE_COUNT: number = 2500;
 }
