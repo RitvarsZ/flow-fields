@@ -13,13 +13,12 @@ export default class Game {
 
     public update(dt: number) {
         this.flowField.update(dt);
-        this.engineInstance.update(dt);
     }
 
     public draw(ctx: CanvasRenderingContext2D) {
-        ctx.fillStyle = "#222";
-        ctx.fillRect(0, 0, Config.GAME_WIDTH, Config.GAME_HEIGHT);
-        this.flowField.draw(ctx);
+        // ctx.fillStyle = "#222";
+        // ctx.fillRect(0, 0, Config.GAME_WIDTH, Config.GAME_HEIGHT);
+        // this.flowField.draw(ctx);
         this.engineInstance.objectList.forEach(obj => obj.draw(ctx));
     }
 

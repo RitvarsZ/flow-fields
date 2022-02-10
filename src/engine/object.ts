@@ -14,7 +14,6 @@ export default class Object {
     constructor(position: V2, size: V2) {
         this.position = position;
         this.size = size;
-        console.log(this.position)
     }
 
     public applyForce(force: V2) {
@@ -50,7 +49,6 @@ export default class Object {
         if (this.position.y + this.size.y > Config.GAME_HEIGHT) {
             this.position.y = Config.GAME_HEIGHT - this.size.y;
             this.velocity.y = 0;
-
         }
 
         this.acceleration = new V2(0);

@@ -10,12 +10,15 @@ canvas.height = Config.GAME_HEIGHT;
 let game = new Game();
 let time = 0;
 
+ctx.fillStyle = "#222";
+ctx.fillRect(0, 0, Config.GAME_WIDTH, Config.GAME_HEIGHT);
+
 function gameLoop(timestamp: number) {
     let dt = timestamp - time;
     time = timestamp;
 
     // Clear the canvas before each frame.
-    ctx.clearRect(0, 0, Config.GAME_WIDTH, Config.GAME_HEIGHT);
+    // ctx.clearRect(0, 0, Config.GAME_WIDTH, Config.GAME_HEIGHT);
 
     game.update(dt);
     game.draw(ctx);
