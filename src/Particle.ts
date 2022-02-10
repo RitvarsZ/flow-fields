@@ -73,7 +73,6 @@ export default class Particle extends Object {
         ctx.beginPath();
         ctx.moveTo(this.prevPosition.x, this.prevPosition.y);
         ctx.lineTo(this.position.x, this.position.y);
-        // console.log(this.position, this.prevPosition);
         ctx.stroke();
         ctx.closePath();
 

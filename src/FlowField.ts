@@ -5,7 +5,7 @@ import noise from "./noise";
 import Particle from "./Particle";
 
 export default class FlowField {
-    public gridScale: number = 6;
+    public gridScale: number = 7;
     public rows: number = Math.floor(Config.GAME_WIDTH / this.gridScale);
     public cols: number = Math.floor(Config.GAME_HEIGHT / this.gridScale);
     public flowField: Array<V2>;
@@ -13,7 +13,7 @@ export default class FlowField {
     private engineInstance: PhysicsEngine;
     private particles: Array<Particle> = [];
     private zOffset: number = 0;
-    private increment: number = 0.07;
+    private increment: number = 0.03;
 
     constructor(engineInstance: PhysicsEngine) {
         this.engineInstance = engineInstance;
@@ -26,7 +26,7 @@ export default class FlowField {
         this.particles = [];
         for (let i = 0; i < Config.PARTICLE_COUNT; i++) {
             this.particles[i] = new Particle(
-                new V2(Math.random() * Config.GAME_WIDTH, Math.random() * Config.GAME_HEIGHT),
+                new V2(i % Config.GAME_WIDTH, Config.GAME_HEIGHT / 2),
                 new V2(1, 1),
             );
 
@@ -50,7 +50,7 @@ export default class FlowField {
             }
 
             yOffset += this.increment;
-            this.zOffset += 0.00001;
+            this.zOffset += 0.00004;
         }
 
         for (let i = 0; i < this.particles.length; i++) {
