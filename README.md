@@ -1,8 +1,4 @@
-![JavaScript Game Boilerplate](img/JSGB.png "JavaScript Game Boilerplate")
-
-Simple boilerplate code for making games using JavaScript.
-
-Including TypeScript support.
+# FlowFields
 
 ### Setup
 
