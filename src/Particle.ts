@@ -5,7 +5,8 @@ import FlowField from "./FlowField";
 
 export default class Particle extends Object {
     public prevPosition: V2;
-    public maxSpeed: number = .15;
+    public maxSpeed: number = Config.PARTICLE_MAX_SPEED
+    public color: {r: number, g: number, b: number} = {r: 175, g: 0, b: 0};
 
     constructor(position: V2, size: V2) {
         super(position, size);
@@ -69,12 +70,25 @@ export default class Particle extends Object {
     
     // Draw a line from previous position to current position.
     public draw(ctx: CanvasRenderingContext2D): void {
-        ctx.strokeStyle = `rgba(${Math.random() * 255}, ${Math.random() * 100}, ${Math.random() * 255}, 0.1)`;
+        ctx.strokeStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.01)`;
+        this.color.g += 0.01;
+        this.color.b += 0.05;
+        this.color.g = this.color.g % 40;
+        this.color.b = this.color.b % 120;
         ctx.beginPath();
         ctx.moveTo(this.prevPosition.x, this.prevPosition.y);
         ctx.lineTo(this.position.x, this.position.y);
-        ctx.stroke();
         ctx.closePath();
+
+        ctx.stroke();
+
+        // ctx.shadowColor = "rgba(255, 255, 255, 0.1)";
+        ctx.shadowColor = "rgba(18, 17, 31, 0.25)";
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+        ctx.fill();
+
 
         this.updatePrev();
     }
